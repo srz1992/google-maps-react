@@ -15,7 +15,6 @@ class MarkerMap extends Component {
   constructor(props){
     super(props);
     this.state = {
-      isOpen: false,
       articles: []
     }
   }
@@ -56,7 +55,7 @@ class MarkerMap extends Component {
           return <GoogleMap
           defaultZoom={12}
           defaultCenter={{ lat: 44.9778, lng: -93.258133}}>
-          <Marker/>
+          {this.state.articles.map((article, i)=> <Marker key={i} lat={article.lat} lng={article.lng}/>)}
         </GoogleMap>
         })));
 

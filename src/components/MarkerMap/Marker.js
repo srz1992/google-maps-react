@@ -20,7 +20,7 @@ import  {
   
       onToggleOpen = () => {
         console.log('onToggleOpen');
-        
+        console.log('this.props:', this.props);
         this.setState({...this.state, isOpen: !this.state.isOpen})
       }
   
@@ -45,9 +45,14 @@ import  {
       
         render( ) {
   
+            let parsedLat = parseFloat(this.props.lat);
+            let parsedLng = parseFloat(this.props.lng);
+            console.log('parsedLat:', parsedLat);
+            
+
           return (
             <Marker
-            position={{ lat: 44.9778, lng: -93.258133 }}
+            position={{ lat: parsedLat, lng: parsedLng }}
             onClick={this.onToggleOpen}>
         {this.state.isOpen && 
         <InfoWindow onCloseClick={this.onToggleOpen}>
