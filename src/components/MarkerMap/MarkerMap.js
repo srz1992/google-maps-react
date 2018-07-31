@@ -12,10 +12,13 @@ import  {
 
 class MarkerMap extends Component {
     
+
+  // do not delete markers array. will throw error in console
   constructor(props){
     super(props);
     this.state = {
-      articles: []
+      articles: [],
+      markers: []
     }
   }
 
