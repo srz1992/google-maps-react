@@ -11,36 +11,6 @@ import  {
   InfoWindow,
 } from "react-google-maps";
 
-const MapWithAMarkedInfoWindow = compose(
-    withStateHandlers(() => ({
-      isOpen: false,
-    }), {
-      onToggleOpen: ({ isOpen }) => () => ({
-        isOpen: !isOpen,
-      })
-    }),
-    withScriptjs,
-    withGoogleMap
-  )(props =>
-    <GoogleMap
-      defaultZoom={12}
-      defaultCenter={{ lat: 44.9778, lng: -93.258133}}
-    >
-      <Marker
-        position={{ lat: 44.9778, lng: -93.258133 }}
-        onClick={props.onToggleOpen}
-      >
-        {props.isOpen && 
-        <InfoWindow onCloseClick={props.onToggleOpen}>
-         <div>"Hello"</div> 
-        </InfoWindow>}
-      </Marker>
-    </GoogleMap>
-  );
-
-
-
-
 class MarkerMap extends Component {
     
   constructor(props){
