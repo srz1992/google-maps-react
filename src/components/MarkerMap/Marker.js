@@ -12,7 +12,7 @@ import  {
     constructor(props){
       super(props);
       this.state = {
-        isOpen: false
+        isOpen: false,
       }
     }
     
@@ -24,9 +24,9 @@ import  {
         this.setState({...this.state, isOpen: !this.state.isOpen})
       }
   
-      componentWillMount() {
-          this.setState({ markers: [] })
-        }
+    //   componentWillMount() {
+    //       this.setState({ markers: [] })
+    //     }
       
         componentDidMount() {
           const url = [
