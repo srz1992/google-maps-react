@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 /* eslint-disable no-undef */
 // const FaAnchor = "@fortawesome/react-fontawesome";
 import Marker from './Marker'
@@ -14,12 +15,14 @@ class MarkerMap extends Component {
   constructor(props){
     super(props);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      articles: []
     }
   }
 
     componentWillMount() {
         this.setState({ markers: [] })
+        this.getLocations();
       }
     
       componentDidMount() {
@@ -37,6 +40,17 @@ class MarkerMap extends Component {
           }); 
       }
     
+      getLocations = () =>{
+        axios.get('/api/articles')
+        .then(async(response)=>{
+           await this.setState({...this.state, articles: [...response.data]})
+           console.log('this.state:', this.state);
+        })
+        .catch((error)=>{
+          console.log('error getting articles in client:', error);
+        })
+      }
+
       render( ) {
         let MyMap = (withScriptjs(withGoogleMap(()=>{
           return <GoogleMap
