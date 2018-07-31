@@ -51,7 +51,9 @@ import  {
             onClick={this.onToggleOpen}>
         {this.state.isOpen && 
         <InfoWindow onCloseClick={this.onToggleOpen}>
-        <div>"Hello"</div> 
+        <div>"HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello"
+        <p>Goodbye</p>
+        </div> 
         </InfoWindow>}
           </Marker>
           )
