@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { compose, withProps, withStateHandlers } from "recompose";
 /* eslint-disable no-undef */
 // const FaAnchor = "@fortawesome/react-fontawesome";
+import Marker from './Marker'
+
 import  {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
-  Marker,
-  InfoWindow,
 } from "react-google-maps";
 
 class MarkerMap extends Component {
@@ -19,12 +17,6 @@ class MarkerMap extends Component {
       isOpen: false
     }
   }
-  
-  
-
-    onToggleOpen = () => {
-      this.setState({...state, isOpen: !this.state.isOpen})
-    }
 
     componentWillMount() {
         this.setState({ markers: [] })
@@ -50,14 +42,7 @@ class MarkerMap extends Component {
           return <GoogleMap
           defaultZoom={12}
           defaultCenter={{ lat: 44.9778, lng: -93.258133}}>
-          <Marker
-            position={{ lat: 44.9778, lng: -93.258133 }}
-            onClick={this.onToggleOpen}>
-        {this.state.isOpen && 
-        <InfoWindow onCloseClick={this.onToggleOpen}>
-        <div>"Hello"</div> 
-        </InfoWindow>}
-          </Marker>
+          <Marker/>
         </GoogleMap>
         })));
 
